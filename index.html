@@ -6,12 +6,45 @@
         <meta name="viewport" content="width=, initial-scale=1.0">
         <title>JavaOpg</title>
         <link rel="stylesheet" href="/style/style.css">
+        <script>
+
+            fetch('Data/profile.json')
+
+            .then((response) => response.json())
+
+            .then((profil) => {
+                console.log(profil.avatar_url);
+                let imageContainer = document.querySelector('#profile-image')
+                let imageText = document.querySelector('.profile-text') 
+
+                imageContainer.src = profil.avatar_url;
+
+                imageText.textContent = profil.login;
+                
+                console.log('TEST', imageContainer.src, imageContainer.id)
+            });
+
+            function open(){
+                console.log('Open')
+            }
+
+            const openMe = () => {
+                console.log('Open Me')
+            }
+            
+            open();
+            openMe();
+        </script>
     </head>
 <body>
     <header>
 
     </header>
 
-    
+    <div>
+    <img id="profile-image" src="https://avatars.githubusercontent.com/u/100561243?v=4">
+    <p class="profile-text">hrello</p>
+    </div>
+
 </body>
 </html>
